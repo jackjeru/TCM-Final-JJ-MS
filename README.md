@@ -1,7 +1,7 @@
 # TCM-Final-JJ-MS
 #This program uses the MealDB API to help users find and cook meals.
 
-import requests, json, pprint
+  import requests, json, pprint
 
 #This is the first line of the main code that introduces the User to the program and asks for their name 
 
