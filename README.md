@@ -3,7 +3,7 @@
 
 import requests, json, pprint
 
-#This is the first line of the main code that introduces the User to the program and asks for their name
+#This is the first line of the main code that introduces the User to the program and asks for their name 
 print("Welcome Chef! What is your name?")
 myName = input()
 
