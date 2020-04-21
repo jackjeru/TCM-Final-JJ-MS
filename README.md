@@ -1,13 +1,13 @@
 # TCM-Final-JJ-MS
-# This program uses the MealDB API to help users find and cook meals.
+#This program uses the MealDB API to help users find and cook meals.
 
 import requests, json, pprint
 
-# This is the first line of the main code that introduces the User to the program and asks for their name
+#This is the first line of the main code that introduces the User to the program and asks for their name
 print("Welcome Chef! What is your name?")
 myName = input()
 
-# This is a list of the main ingredients found in the MealDB website.
+#This is a list of the main ingredients found in the MealDB website.
 # This list will be called later to ensure user's only pick a meal that the website has a recipe for.
 categoryList = ['beef', 'chicken', 'goat', 'lamb','pork', 'salmon', 'cheese', 'potatoes', 'tomato', 'eggs', 'flour',
                 'avocado']
