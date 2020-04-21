@@ -8,12 +8,12 @@ print("Welcome Chef! What is your name?")
 myName = input()
 
 #This is a list of the main ingredients found in the MealDB website.
-# This list will be called later to ensure user's only pick a meal that the website has a recipe for.
+#This list will be called later to ensure user's only pick a meal that the website has a recipe for.
 categoryList = ['beef', 'chicken', 'goat', 'lamb','pork', 'salmon', 'cheese', 'potatoes', 'tomato', 'eggs', 'flour',
                 'avocado']
 
-# pickChef is the first function that asks the user whether they know what recipe they'd like to cook.
-# If the user knows what recipe they'd like to cook, theRecipe function is called. Otherwise, lostChef is called.
+#pickChef is the first function that asks the user whether they know what recipe they'd like to cook.
+#If the user knows what recipe they'd like to cook, theRecipe function is called. Otherwise, lostChef is called.
 def pickChef():
     picky = ''
     while picky !='yes' and picky != 'no':
@@ -26,7 +26,7 @@ def pickChef():
     if picky == 'no':
         lostChef()
 
-# This function helps users find a meal using the URL that prints all meals that use a certain main ingredient.
+#This function helps users find a meal using the URL that prints all meals that use a certain main ingredient.
 def lostChef():
     print('What main ingredient would you like to use?')
     foodType = input()
@@ -51,13 +51,13 @@ def lostChef():
         # This allows the user to pick one of the meals that was returned to them and receive the recipe to cook it.
         theRecipe()
 
-# The else statement will re-run the lostChef function if the user chooses an ingredient that is not a part of the API.
+#The else statement will re-run the lostChef function if the user chooses an ingredient that is not a part of the API.
     else:
         print('Please enter one of the following categories:')
         print(categoryList)
         lostChef()
 
-# This function asks the user what recipe they'd like to cook and returns the recipe to them.
+#This function asks the user what recipe they'd like to cook and returns the recipe to them.
 def theRecipe():
     print('Ok, ' + myName + ', which recipe would you like to cook?')
     myRecipe = input()
@@ -96,7 +96,7 @@ def theRecipe():
     print('Bon Appétit ' + myName + '!')
 
 
-# This is the third line of the main program that calls the function pickChef, which links together the other functions.
+#This is the third line of the main program that calls the function pickChef, which links together the other functions.
 pickChef()
 
 
