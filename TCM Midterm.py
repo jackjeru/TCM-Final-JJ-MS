@@ -84,13 +84,16 @@ def theRecipe():
                 jsonData = json.loads(response.text)
                 # pprint.pprint(jsonData)
                 meal = jsonData['meals'][0]
-                pprint.pprint(meal['strCategory'])  # This prints the main ingredient of the meal.
+                print('Recipe chosen: ' + meal['strMeal'])
+                print('Main ingredient: ' + meal['strCategory'])  # This prints the main ingredient of the meal.
                 # This for loop prints ensures that the program prints all the ingredients and measurements used in the meal.
+                print('Ingredients needed:')
                 for i in range(1,20):
                     if meal[f'strIngredient{i}'] != None:
                         mealInfo = meal[f'strIngredient{i}'] + ' - ' + meal[f'strMeasure{i}']
                         pprint.pprint(mealInfo)
                 # This print statement prints the instructions to cook the meal.
+                print('Cooking instructions:')
                 mealInstruction = meal['strInstructions']
                 pprint.pprint(mealInstruction)
                 print('')
