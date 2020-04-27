@@ -1,4 +1,4 @@
-# This program uses the MealDB API to help users find and cook meals
+# This program uses the MealDB API to help users find and cook meals.
 
 import requests, json, pprint, sys
 
