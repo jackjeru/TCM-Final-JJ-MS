@@ -8,7 +8,7 @@ myName = input()
 
 # This is a list of the main ingredients found in the MealDB website.
 # This list will be called later to ensure user's only pick a meal that the website has a recipe for.
-categoryList = ['beef', 'chicken', 'goat', 'lamb','pork', 'salmon', 'cheese', 'potatoes', 'tomato', 'eggs', 'flour',
+categoryList = ['beef', 'chicken', 'lamb','pork', 'salmon', 'cheese', 'potatoes', 'tomato', 'eggs', 'flour',
                 'avocado']
 
 # pickChef is the first function that asks the user whether they know what recipe they'd like to cook.
