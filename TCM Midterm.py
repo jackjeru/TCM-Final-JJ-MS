@@ -75,48 +75,54 @@ def theRecipe():
         try:
                 print('Ok, ' + myName + ', which recipe would you like to cook?')
                 myRecipe = input()
+              
+                if len(myRecipe) < 4:
+                    print('Please use at least 4 characters.')
+                    
+                else:
 
-                url = 'https://www.themealdb.com/api/json/v1/1/search.php?s='+myRecipe
-                response = requests.get(url)
-                response.raise_for_status()  # check for errors
 
-                # load json data
-                jsonData = json.loads(response.text)
-                # pprint.pprint(jsonData)
-                meal = jsonData['meals'][0]
-                print('Recipe chosen: ' + meal['strMeal'])
-                print('Main ingredient: ' + meal['strCategory'])  # This prints the main ingredient of the meal.
-                # This for loop prints ensures that the program prints all the ingredients and measurements used in the meal.
-                print('Ingredients needed:')
-                for i in range(1,20):
-                    if meal[f'strIngredient{i}'] != None:
-                        mealInfo = meal[f'strIngredient{i}'] + ' - ' + meal[f'strMeasure{i}']
-                        pprint.pprint(mealInfo)
-                # This print statement prints the instructions to cook the meal.
-                print('Cooking instructions:')
-                mealInstruction = meal['strInstructions']
-                pprint.pprint(mealInstruction)
-                print('')
+                  url = 'https://www.themealdb.com/api/json/v1/1/search.php?s='+myRecipe
+                  response = requests.get(url)
+                  response.raise_for_status()  # check for errors
 
-                # This print statement prints a URL will show the user a picture of the meal
-                print('Here is a picture of the meal for reference:')
-                pprint.pprint(meal['strMealThumb'])
-                print('')
+                  # load json data
+                  jsonData = json.loads(response.text)
+                  # pprint.pprint(jsonData)
+                  meal = jsonData['meals'][0]
+                  print('Recipe chosen: ' + meal['strMeal'])
+                  print('Main ingredient: ' + meal['strCategory'])  # This prints the main ingredient of the meal.
+                  # This for loop prints ensures that the program prints all the ingredients and measurements used in the meal.
+                  print('Ingredients needed:')
+                  for i in range(1,20):
+                      if meal[f'strIngredient{i}'] != None:
+                          mealInfo = meal[f'strIngredient{i}'] + ' - ' + meal[f'strMeasure{i}']
+                          pprint.pprint(mealInfo)
+                  # This print statement prints the instructions to cook the meal.
+                  print('Cooking instructions:')
+                  mealInstruction = meal['strInstructions']
+                  pprint.pprint(mealInstruction)
+                  print('')
 
-                # Write out the recipe to a output file:
-                inputFilename = 'NoRecipe.txt'
-                # BE CAREFUL! If a file with the outputFilename name already exists,
-                # this program will overwrite that file:
-                outputFilename = 'ChosenRecipe.txt'
-                # Write out the translated messsage to the output file:
-                outputFileObj = open(outputFilename, 'w')
-                outputFileObj.write(myRecipe + '  -  ' + mealInstruction)
-                outputFileObj.close()
-                print('Additionally, your recipe has been saved to your computer as ChosenRecipe.txt')
-                print('')
+                  # This print statement prints a URL will show the user a picture of the meal
+                  print('Here is a picture of the meal for reference:')
+                  pprint.pprint(meal['strMealThumb'])
+                  print('')
 
-                # This last function checks that the user is satisfied with their choice of recipe
-                satisfiedChef()
+                  # Write out the recipe to a output file:
+                  inputFilename = 'NoRecipe.txt'
+                  # BE CAREFUL! If a file with the outputFilename name already exists,
+                  # this program will overwrite that file:
+                  outputFilename = 'ChosenRecipe.txt'
+                  # Write out the translated messsage to the output file:
+                  outputFileObj = open(outputFilename, 'w')
+                  outputFileObj.write(myRecipe + '  -  ' + mealInstruction)
+                  outputFileObj.close()
+                  print('Additionally, your recipe has been saved to your computer as ChosenRecipe.txt')
+                  print('')
+
+                  # This last function checks that the user is satisfied with their choice of recipe
+                  satisfiedChef()
 
         # This is to ensure the code doesn't end prematurely if the user misspells or chooses an unknown recipe
         except TypeError:
